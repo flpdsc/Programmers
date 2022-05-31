@@ -9,8 +9,8 @@ using namespace std;
 vector<int> solution(vector<int> lottos, vector<int> win_nums) {
     vector<int> answer(2);
 
-    int noNumCnt = 0; //알아볼 수 없는 수(0) 갯수
-    int matchNumCnt = 0; //매칭 갯수
+    int noNumCnt = 0;
+    int matchNumCnt = 0;
 
     for(int i=0; i<lottos.size(); ++i)
     {
@@ -30,8 +30,8 @@ vector<int> solution(vector<int> lottos, vector<int> win_nums) {
     }
 
     int rank[7] = {6,6,5,4,3,2,1};
-    answer[0] = rank[matchNumCnt+noNumCnt]; //최고순위
-    answer[1] = rank[matchNumCnt]; //최저순위
+    answer[0] = rank[matchNumCnt+noNumCnt];
+    answer[1] = rank[matchNumCnt];
 
     return answer;
 }
