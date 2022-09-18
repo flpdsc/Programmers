@@ -5,17 +5,37 @@
 #include <iostream>
 using namespace std;
 
-int solution(int bridge_length, int weight, vector<int> truck_weights) {
-    int answer = 0;
-    
-    queue<int> onBridge;
-    
-    int p = 0;
-    
-    // while(1)
-    // {
+int solution(int bridge_length, int weight, vector<int> truck_weights)
+{
+    int answer=0, p=0, sum=0;
+    queue<int> q;
 
-    // }
+    while(1)
+    {
+        if(p==truck_weights.size())
+        {
+            answer += bridge_length;
+            break;
+        }
+
+        if(q.size()==bridge_length)
+        {
+            sum -= q.front();
+            q.pop();
+        }
+        
+        if(sum+truck_weights[p]<=weight)
+        {
+            sum += truck_weights[p];
+            q.push(truck_weights[p++]);
+        }
+        else
+        {
+            q.push(0);
+        }
+        ++answer;
+    }
+
     return answer;
 }
 
